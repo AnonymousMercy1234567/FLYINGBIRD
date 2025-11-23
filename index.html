@@ -35,7 +35,7 @@ let lastMilestone = 0; // track last milestone to prevent repeated play
 function checkMilestone() {
   if (score > 0 && score % 10 === 0 && lastMilestone !== score) {
     milestoneSound.currentTime = 0;
-    milestoneSound.play("ma ka bosda agg.mp3");
+    milestoneSound.play("gameover.mp3");
     lastMilestone = score; // prevent replay
   }
 }
@@ -46,7 +46,7 @@ const milestoneSound = new Audio("ma ka bosda agg.mp3"); // sound every 10 point
 
 
 const jumpSound = new Audio("jump.mp3.mp3");
-const gameOverSound = new Audio("gameover.mp3");
+const gameOverSound = new Audio("ma ka bosda agg.mp3");
 const bgMusic = new Audio("");
 bgMusic.loop = true;
 
@@ -87,8 +87,8 @@ let bird = {
         if(score>bestscore){
           bestscore=score
         
-        bgMusic.pause("gameover.mp3");
-        gameOverSound.play("gameover.mp3");
+        bgMusic.pause("ma ka bosda agg.mp3");
+        gameOverSound.play("ma ka bosda agg.mp3");
       }
       }
     }
@@ -163,8 +163,8 @@ function updatePipes() {
       (bird.y < p.top || bird.y + bird.height > canvas.height - p.bottom)
     ) {
       gameState = 2;
-      bgMusic.pause("gameover.mp3");
-      gameOverSound.play("gameover.mp3");
+      bgMusic.pause("ma ka bosda agg.mp3");
+      gameOverSound.play("ma ka bosda agg.mp3");
     }
 
     // remove pipes off-screen
@@ -212,7 +212,7 @@ function loop() {
   }
 
   if (gameState === 2) {
-      gameOverSound.play("gameover.mp3");
+      gameOverSound.play("ma ka bosda agg.mp3");
       gameOverSound.loop=false
         // bgMusic.pause("gameover.mp3");
     ctx.drawImage(gameOverImg, centerX, centerY, imgWidth, imgHieght);
